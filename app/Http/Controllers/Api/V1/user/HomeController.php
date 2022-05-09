@@ -76,7 +76,7 @@ class HomeController extends Controller
                 array_push($times,$date->format('H:i'));
             }
             $result=array_diff($times,$orders);
-            $pitche->intervals = $result;
+            $pitche->intervals = collect($result)->values();
         }
         return response()->json(msgdata($request, success(), trans('lang.success'), $pitches));
     }

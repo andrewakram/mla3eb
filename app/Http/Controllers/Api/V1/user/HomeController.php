@@ -51,7 +51,7 @@ class HomeController extends Controller
             'pitche_id' => $request->pitche_id,
             'date' => $request->date,
             'start' => $request->time,
-            'end' => Carbon::parse($request->time)->addMinutes($pitche->slot),
+            'end' => Carbon::parse($request->time)->addMinutes($pitche->slot)->format('H:i'),
         ]);
 
         return response()->json(msgdata($request, success(), trans('lang.success'), $order));
